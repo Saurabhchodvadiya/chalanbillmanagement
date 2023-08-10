@@ -1,0 +1,249 @@
+{% extends "pages/home.html" %}
+{% load static %}
+{% block extrahead %}
+{{ form.media}}
+{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'public/table.css' %}">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.13.1/datatables.min.css" />
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.13.1/datatables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js" defer></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="{% static 'public/job_profile.css' %}">
+
+		
+	  </main>
+	  
+</div>
+
+<div class="box-body" id="white-box" style="padding-left: 30px;box-sizing: border-box;">
+    <div class="col-sm-3 col-md-3">
+        <div class="form-group">
+            <label for="fname">name</label>
+            <input type="text" id="name" name="fname"  placeholder="name"><br><br>
+        </div>
+    </div>
+    <!-- <div class="col-sm-3 col-md-3">
+        <div class="form-group">
+            <label for="fname">user_id</label>
+            <br>
+            <select name="fname" placeholder="Mounting Type" id="Mounting_drop" style="width: 155px;
+            height: 24px;
+            font-size: 11px;
+        ">
+                <option value="0">Surface</option>
+                <option value="1">Through</option>
+                <option value="2">Other</option>
+              
+              </select>
+            
+        </div>
+    </div> -->
+
+    <div class="col-sm-3 col-md-3">
+        <div class="form-group">
+            <label for="fname">company_name</label>
+            <input type="text" id="company_name" name="fname"  placeholder="company_name"  ><br><br>
+        </div>
+    </div>
+	<div class="col-sm-3 col-md-3">
+        <div class="form-group">
+            <label for="fname">phone_number</label>
+            <input type="text" id="phone_number" name="fname"  placeholder="phone_number"  ><br><br>
+        </div>
+    </div>
+	<div class="col-sm-3 col-md-3">
+        <div class="form-group">
+            <label for="fname">phone1</label>
+            <input type="text" id="phone1" name="fname"  placeholder="phone1"  ><br><br>
+        </div>
+    </div>
+    <!-- <div class="col-sm-3 col-md-3">
+        <div class="form-group">
+            <label for="fname">products</label>
+            <input type="text" id="products" name="fname" placeholder="HT"  ><br><br>
+        </div>
+    </div>
+    <div class="col-sm-3 col-md-3">
+        <div class="form-group">
+            <label for="fname">prices</label>
+            <input type="text" id="prices"  name="fname" placeholder="Dia"  ><br><br>
+        </div>
+    </div>
+    <div class="col-sm-3 col-md-3">
+        <div class="form-group">
+            <label for="fname">qty</label>
+            <input type="text" id="qty" name="fname"  placeholder="Spring Dia" ><br><br>
+        </div>
+    </div>
+    <div class="col-sm-3 col-md-3">
+        <div class="form-group">
+            <label for="fname">rate</label>
+            <input type="text" id="rate"  name="fname" placeholder="Material "  ><br><br>
+        </div>
+    </div>
+    <div class="col-sm-3 col-md-3">
+        <div class="form-group">
+            <label for="fname">amount</label>
+            <input type="text" id="amount" name="fname" placeholder="Pitch"  ><br><br>
+        </div>
+    </div> -->
+  
+    
+
+    
+    <br><br><br>
+    <div style="white-space: pre-line;">
+        <button onclick="add_file()">ADD</button>
+    </div>
+  
+
+
+    <object data="{{find_data.datasheet}}" 
+            width="1100" 
+            height="1000"> 
+    </object>
+</div>
+<style>
+    div#white-box {
+        width: auto;
+        background-color: #fff;
+        color: #000;
+        padding: 8px 12px;
+        word-wrap: break-word;
+    }
+    input,input#fname {
+        font-family: inherit;
+        display: block !important;
+        height: 25px;
+        padding: 6px 6px !important;
+        font-size: 11px !important;
+        line-height: 1.42857143 !important;
+        color: #223D4F !important;
+        background-color: transparent !important;
+        background-image: none !important;
+        border: 1px solid #D7DCDE !important;
+        border-radius: 0px !important;
+        box-shadow: none !important;
+        font-size: inherit;
+        line-height: inherit;
+    }
+    label {
+        font-size: 11px;
+        color: black;
+    }
+    .form-group {
+        margin-top: 6px !important;
+        margin-bottom: -30px !important;
+    }
+    button {
+        appearance: none;
+        background-image: linear-gradient(-180deg, #37AEE2 0%, #1E96C8 100%);
+        border: 2px solid #1A1A1A;
+        border-radius: 15px;
+        box-sizing: border-box;
+        color: #FFFFFF;
+        cursor: pointer;
+        display: inline-block;
+        font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 12px;
+        font-weight: 600;
+        line-height: normal;
+        margin: 0;
+        min-height: 35px;
+        min-width: 70px;
+        outline: none;
+        /* padding: 16px 24px; */
+        text-align: center;
+        text-decoration: none;
+        transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        /* width: 100%; */
+        will-change: transform;
+    }
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript">
+
+
+
+
+
+
+</script>
+<script>
+    
+    document.getElementById('1').className = "active"
+
+function add_file() {
+        var url = "{% url 'add_user' %}";
+      
+        var file_Data= new FormData()
+        
+        // var jsonString = JSON.stringify(valuesByItemId);
+        if ($("#name").val()){
+		
+        file_Data.append("name",$("#name").val())
+        file_Data.append("company_name",$("#company_name").val())
+  
+        file_Data.append("phone_number",$("#phone_number").val())
+		file_Data.append("phone1",$("#phone1").val())
+		
+   
+        // search_dict['Manufacturer'] = $("#Manufacturer").val();
+        // search_dict['Mounting'] = document.getElementById("Mounting_drop").value;
+        // search_dict['productvalue'] = $("#productvalue").val();
+        // search_dict['HT'] = $("#HT").val();
+        // search_dict['Dia'] = $("#Dia").val();
+        // search_dict['file'] =file_Data;
+        // search_dict['Spring'] = $("#Spring").val();
+        // search_dict['Material'] = $("#Material").val();
+        // search_dict['Pitch'] = $("#Pitch").val();{}
+ 
+        $.ajax({
+            url: url,
+            method: 'POST',
+            type:'POST',
+            data: file_Data,
+            dataType: 'json',
+            processData: false,
+            contentType: false,
+            headers: {'X-CSRFToken': '{{ csrf_token }}'},
+			success: function (data) {
+			console.log(data)
+            if (data){
+                window.alert(data.msg);
+            }
+			else if (data.added!=true) {
+				
+				//$("#id_alert").append(make_alert("info","ShareClass already exists."));
+				window.alert("Manufacture Part Already exists");
+			}
+            
+			else{
+				
+				// $("#id_alert").append(make_alert("success","ShareClass added successfully.!"));
+				window.alert("Other Data updated successfully.!");
+				window.location.replace("{% url 'otherProduct' %}");
+			}
+			},
+			error: function (jqXHR, status, err) {
+				
+				// $("#id_alert").append(make_alert("danger","Sorry, Something went wrong."));
+				window.alert("Sorry, Something went wrong.");
+			},
+		});			
+		}
+        // else{
+        //     window.alert("Please Enter Part No");
+        // }
+}
+
+	
+
+</script>
+{% endblock %}
+
+
